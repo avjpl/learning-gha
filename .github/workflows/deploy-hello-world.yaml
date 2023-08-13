@@ -3,12 +3,12 @@ name: Deploy Hello World
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - "v*-hello-world"
   pull_request:
     branches:
-      - 'master'
+      - 'main'
 
 jobs:
   deploy-docker-hello-world:
