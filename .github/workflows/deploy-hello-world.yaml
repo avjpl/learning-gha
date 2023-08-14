@@ -23,7 +23,7 @@ jobs:
         id: metadata
         uses: docker/metadata-action@v4
         with:
-          images: avjpl/hello-world
+          images: "${{ github.repository }}"
           flavor: latest=true
           tags: |
             type=ref,event=branch
@@ -47,14 +47,12 @@ jobs:
         with:
           context: .  # Path to the Docker build context
           file: ./Dockerfile  # Path to the Dockerfile
-          push: false  # We won't push the image here, just tag it
-          tags: "${{ github.repository_owner }}/${{ github.repository }}"
+          push: true  # We won't push the image here, just tag it
+          tags: "${{ github.repository }}"
 
       - name: Print tagged images
         run: |
           echo "${{ steps.metadata.outputs.tags }}"
           echo "${{ steps.metadata.outputs.labels }}"
           echo "repository: ${{ github.repository }}"
-          echo "repository_owner: ${{ github.repository_owner }}"
           echo "sha: ${{ github.sha }}"
-          echo "tag: ${{ github.repository_owner }}/${{ github.repository }}"
