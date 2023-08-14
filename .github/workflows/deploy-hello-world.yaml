@@ -51,13 +51,12 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          push: false
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-#          tags: "${{ github.repository }}"
 
       - name: Print tagged images
         run: |
           echo "${{ steps.meta.outputs.tags }}"
           echo "${{ steps.meta.outputs.labels }}"
-          echo "repository: ${{ github.repository }}:${{ steps.meta.outputs.tags }}"
+          echo "repository: ${{ steps.meta.outputs.tags }}"
