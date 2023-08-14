@@ -54,5 +54,5 @@ jobs:
         run: |
           echo "${{ steps.metadata.outputs.tags }}"
           echo "${{ steps.metadata.outputs.labels }}"
-          echo "repository: ${{ github.repository }}"
+          echo "repository: ${{ github.repository }}:${{ steps.meta.outputs.tags }}"
           echo "sha: ${{ github.sha }}"
