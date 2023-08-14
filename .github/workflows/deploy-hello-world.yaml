@@ -45,9 +45,9 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v4
         with:
-          context: .  # Path to the Docker build context
-          file: ./Dockerfile  # Path to the Dockerfile
-          push: false  # We won't push the image here, just tag it
+          context: .
+          file: ./Dockerfile
+          push: true
           tags: "${{ github.repository }}"
 
       - name: Print tagged images
