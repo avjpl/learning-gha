@@ -38,6 +38,10 @@ jobs:
             type=semver,pattern={{version}}
             type=sha
 
+      - # Setup hardware emulator using QEMU
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
       - # login to Docker Hub using the secrets provided
         name: Login to Docker Hub
 #        if: startsWith(github.ref, 'refs/tags')
