@@ -14,11 +14,12 @@ on:
 jobs:
   deploy-docker-to-docker-hub:
     runs-on: ubuntu-latest
-    fail-fast: false
-    matrix:
-      platform:
-        - linux/amd64
-        - linux/arm64
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - linux/amd64
+          - linux/arm64
 
     steps:
       - name: Checkout code
