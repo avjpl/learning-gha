@@ -1,1 +1,11 @@
-console.log('Learning gha');
+const express = require('express');
+
+const app = express();
+const PORT = process.env.PORT || 8010;
+
+app.get('/',(req,res) => {
+  res.status(200);
+  res.send("Hello World!!");
+});
+
+app.listen(PORT, () => console.log(`App listening on port ${PORT} `));
