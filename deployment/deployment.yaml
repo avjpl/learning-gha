@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-app
+  name: hello-world-app-deployment
   labels:
     app: hello-world-app
 spec:
@@ -15,7 +15,9 @@ spec:
         app: hello-world-app
     spec:
       containers:
-        - name: learning-gha
+        - name: hello-world-app
           image: ghcr.io/avjpl/learning-gha:latest
+          ports:
+            - containerPort: 8010
       imagePullSecrets:
         - name: github-container-registry
